@@ -17,9 +17,13 @@ describe('Funcionalidade Cadastro', () => {
     
 
     it('Deve cadastrar com sucesso', () => {
+        
+        let name = faker.name.findName()
+        let email = faker.internet.email(name)
+        
         cy.get('.align-items-center > .bbox-button').click()
-        cy.get('#input-fullName').type(faker.name.findName())
-        cy.get('#input-email').type(faker.internet.email())
+        cy.get('#input-fullName').type(name)
+        cy.get('#input-email').type(email)
         cy.get('#input-password').type('senha123')
         cy.get('#input-confirmPassword').type('senha123')
         cy.get('.checkbox-icon > .icon > svg').click()
@@ -43,9 +47,14 @@ describe('Funcionalidade Cadastro', () => {
     })
 
     it('Deve validar senha com menos de 8 caracteres', () => {
+        
+                
+        let name = faker.name.findName()
+        let email = faker.internet.email(name)
+        
         cy.get('.align-items-center > .bbox-button').click()
-        cy.get('#input-fullName').type(faker.name.findName())
-        cy.get('#input-email').type(faker.internet.email())
+        cy.get('#input-fullName').type(name)
+        cy.get('#input-email').type(email)
         cy.get('#input-password').type('123')
         cy.get('#input-confirmPassword').type('123')
         cy.get('.checkbox-icon > .icon > svg').click()
@@ -55,9 +64,13 @@ describe('Funcionalidade Cadastro', () => {
     })
     
     it('Deve validar a não marcação do termo de uso', () => {
+        
+        let name = faker.name.findName()
+        let email = faker.internet.email(name)
+        
         cy.get('.align-items-center > .bbox-button').click()
-        cy.get('#input-fullName').type(faker.name.findName())
-        cy.get('#input-email').type(faker.internet.email())
+        cy.get('#input-fullName').type(name)
+        cy.get('#input-email').type(email)
         cy.get('#input-password').type('12345678')
         cy.get('#input-confirmPassword').type('12345678')
         cy.get('.bbox-button.margin-top-big').click()
